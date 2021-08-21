@@ -6,24 +6,21 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import Services.RessourcesServices;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/hello")
 public class GreetingResource {
 
     @Inject
-    GreetingService service;
+    @RestClient
+    RessourcesServices service;
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/greeting/{name}")
-    public String greeting(@PathParam String name) {
-        return service.greeting(name);
-    }
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "hello from OpenShit plus WebHook";
+        return service.helloFrom();
     }
 }
