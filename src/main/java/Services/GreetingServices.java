@@ -8,16 +8,17 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
-@RegisterRestClient
+@RegisterRestClient(baseUri = "https://helloworldblockchain.herokuapp.com")
 @ApplicationScoped
-@Path("/hello")
-public interface RessourcesServices {
+@Path("/customer")
+public interface GreetingServices {
 
     @GET
-    @Path("/hellofromressource")
-    @Produces(MediaType.TEXT_PLAIN)
-    String helloFrom();
+    @Path("/getCustomersList")
+    @Produces(MediaType.APPLICATION_JSON)
+    String getCustomerListFromApi();
 
 
 }
