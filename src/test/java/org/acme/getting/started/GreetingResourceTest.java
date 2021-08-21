@@ -18,7 +18,7 @@ public class GreetingResourceTest {
                 .when().get("/hello")
                 .then()
                 .statusCode(200)
-                .body(is("hello from OpenShit plus Web oo"));
+                .body(is("hello from OpenShit plus WebHook"));
     }
 
     @Test
